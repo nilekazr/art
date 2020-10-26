@@ -1,1 +1,3 @@
-<%=`https://www.wikiart.org/en/popular-paintings?json=1&page=${i}`%
+<% for (let i = 0; i < paintings.length; i++) { %> 
+<img src="<%= paintings[0].image %>" alt=""> 
+<% } %>
