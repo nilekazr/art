@@ -22,6 +22,13 @@ router.get('/paintings', function(req, res){
   })
 });
 
+router.get('/paintings/:id', function(req, res) {
+  axios.get(`https://www.wikiart.org/en/search/${req.query.title}/1?json=2/`)
+  .then((apiResponse) => {
+    res.render('paintings', {paintings: apiResponse.data});
+  })
+});
+
 router.post('/paintings', function(req, res){
   res.redirect("paintings");
 });
