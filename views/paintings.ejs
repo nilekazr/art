@@ -2,6 +2,8 @@
   <% let randomNum = Math.floor(Math.random() * 60) %> 
   <div>
     <img src="<%= paintings[randomNum].image %>" alt="">
-    <p></p>
+    <p><%= paintings[randomNum].title %> </p>
   </div>
 <% } %>
+<!-- TODO: Figure out how to skip 404 images, with standard urls -->
+<!-- consider finding out image dimensions and pop using those -->

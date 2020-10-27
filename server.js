@@ -32,8 +32,7 @@ app.use((req, res, next) => {
 
 app.get('/', (req, res) => {
   // TO DO: how to access artist urls (db?)
-  let artistUrl = 'pablo-picasso'
-  let wikiUrl = `https://www.wikiart.org/en/${artistUrl}/?json=2`
+  let wikiUrl = `https://www.wikiart.org/en/app/api/popularartists?json=1`
   axios.get(wikiUrl).then( function(apiResponse) {
     console.log(apiResponse.data)
     res.render('index', {artist: apiResponse.data});
