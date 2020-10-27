@@ -1,7 +1,14 @@
-<% for (let i = 0; i < paintings.length; i++) { %>
-  <% let randomNum = Math.floor(Math.random() * 60) %> 
-  <div>
-    <img src="<%= paintings[randomNum].image %>" alt="">
-    <p></p>
+<h1 class="text-center">Paintings</h1>
+
+<div class="grid-container">
+  <div class="grid-x">
+
+    <% for (let i = 0; i < paintings.length; i++) { %>
+      <% let randomNum = Math.floor(Math.random() * 60) %> 
+      <div class="cell large-4">
+        <img src="<%= paintings[randomNum].image %>" alt="">
+        <p><%= paintings[randomNum].title %></p>
+      </div>
+      <% } %>
+    </div>
   </div>
-<% } %>
