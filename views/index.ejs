@@ -1,11 +1,12 @@
 <div class="callback">
   <h2>Homepage</h2>
   
-  <% for (let i = 0; i < artist.length; i ++) { %> 
->>>>>>> submain
-  <% let randomNum = Math.floor(Math.random() * 60) %> 
-  <img src="<%= artist[randomNum].image %>" alt="">
-  <h3><%= artist[randomNum].artistName %></h3>
+  <% for (let i = 0; i < artist.length; i ++) { %>  
+  <img src="<%= artist[i].image %>" alt="">
+  <form method="POST" action="/">
+    <input hidden type="text" name="url" value="<%= artist[i].url %>">
+    <a onclick="this.parentNode.submit();"><%= artist[i].artistName %></button>
+  </form> %>
 <% } %>
 </div>
 
