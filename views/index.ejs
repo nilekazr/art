@@ -1,15 +1,15 @@
-<h1 class="text-center">Index</h1>
-
 <div class="grid-container">
-  <div class="grid-x">
-    <% for (let i = 0; i < artist.length; i ++) { %> 
-          <div class="cell large-3">
-            <img src="<%= artist[i].image %>" alt="">
-            <p><%= artist[i].artistName %></p>
-          </div>
-      <% } %>
-    </div>
-  </div>  
+  <h2>Homepage</h2>
+  
+  <% for (let i = 0; i < artist.length; i ++) { %>  
+  <div class="cell large-4">
+  <img src="<%= artist[i].image %>" alt="">
+  <form method="POST" action="/">
+    <input type="hidden" name="name" value="<%= artist[i].url %>">
+    <button class="btn btn-primary" type="submit"><%= artist[i].artistName %></button>
+  </form> %>
+  </div>   
+  <% } %>
 </div>
 
 
