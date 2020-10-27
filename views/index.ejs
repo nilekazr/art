@@ -1,12 +1,15 @@
-<div class="callback">
-  <h2>Homepage</h2>
-  
-  <% for (let i = 0; i < artist.length; i ++) { %> 
->>>>>>> submain
-  <% let randomNum = Math.floor(Math.random() * 60) %> 
-  <img src="<%= artist[randomNum].image %>" alt="">
-  <h3><%= artist[randomNum].artistName %></h3>
-<% } %>
+<h1 class="text-center">Index</h1>
+
+<div class="grid-container">
+  <div class="grid-x">
+    <% for (let i = 0; i < artist.length; i ++) { %> 
+          <div class="cell large-3">
+            <img src="<%= artist[i].image %>" alt="">
+            <p><%= artist[i].artistName %></p>
+          </div>
+      <% } %>
+    </div>
+  </div>  
 </div>
 
 
