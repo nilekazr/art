@@ -2,28 +2,20 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>art.</title>
     <link rel="stylesheet" href="/css/style.css">
+    <!-- Compressed Foundation CSS and JavaScript -->
+  <link rel="stylesheet" href="/css/foundation.css">
+  <script src="/js/foundation.js"></script>
   </head>
   <body>
-    <header>
-      <nav>
-        <ul>
-          <% if (!currentUser) { %>
-            <li><a href="/auth/signup">Signup</a></li>
-            <li><a href="/auth/login">Login</a></li>
-          <% } else { %>
-            <li><a href="/auth/logout">Logout</a></li>
-            <li><a href="/profile">Profile</a></li>
-          <% } %>
-        </ul>
-      </nav>
-    </header>
+    <%- include("partials/header") %>
 
     <%- include("partials/alerts") %>
 
-    <h1>Authentication</h1>
     <%- body %>
+
+    <%- include("partials/footer") %>
   </body>
 </html>
