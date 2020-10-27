@@ -40,10 +40,18 @@ app.get('/', (req, res) => {
   })
 });
 
+// Painting
+
 // the following two lines must be below config of session
 app.use(passport.initialize())
 app.use(passport.session())
 
+
+// when isLogged, go to favs/profile page
+
+
+// when isLogged, redirect to home page instead.
+// the login/signup section to change 
 app.get('/profile', isLoggedIn, (req, res) => {
   res.render('profile');
 });
