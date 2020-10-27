@@ -55,7 +55,7 @@ app.get('/profile', isLoggedIn, (req, res) => {
   res.render('profile');
 });
 
-app.use('/art', require('./routes/art'));
+app.use('/', require('./routes/art'));
 
 var server = app.listen(process.env.PORT || 3000, ()=> console.log(`art. running on ${process.env.PORT || 3000}`));
 
