@@ -1,13 +1,15 @@
-<div class="callback">
+<div class="grid-container">
   <h2>Homepage</h2>
   
   <% for (let i = 0; i < artist.length; i ++) { %>  
+  <div class="cell large-4">
   <img src="<%= artist[i].image %>" alt="">
   <form method="POST" action="/">
-    <input hidden type="text" name="url" value="<%= artist[i].url %>">
-    <a onclick="this.parentNode.submit();"><%= artist[i].artistName %></button>
+    <input type="hidden" name="name" value="<%= artist[i].url %>">
+    <button class="btn btn-primary" type="submit"><%= artist[i].artistName %></button>
   </form> %>
-<% } %>
+  </div>   
+  <% } %>
 </div>
 
 

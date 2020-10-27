@@ -16,15 +16,16 @@ app.use(express.urlencoded({ extended: false }));
 
 router.post('/', function(req, res) {
   // TODO: Get form data and add a new record to DB
-  console.log(req.body.url)
-  // db.art.findOrCreate({
-  //   where: {
-  //   artistUrl: req.body.url
-  //   }
-  // })
-  // .then(() => {
-  //   res.redirect('/artists')
-  //   })
+  console.log(req.body.name)
+  db.art.findOrCreate({
+    where: {
+    artistUrl: req.body.name,
+
+    }
+  })
+  .then(() => {
+    res.redirect('/artists')
+    })
 });
 
 
