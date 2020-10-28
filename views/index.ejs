@@ -4,7 +4,7 @@
       <% for (let i = 0; i < artist.length; i ++) { %>  
         <div class="cell large-3">
           <img src="<%= artist[i].image %>" alt="">
-            <form method="POST" action="/">
+            <form method="GET" action="/artists">
               <input type="hidden" name="name" value="<%= artist[i].url %>">
               <button class="btn btn-primary" type="submit"><%= artist[i].artistName %></button>
             </form>

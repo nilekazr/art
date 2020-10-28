@@ -34,7 +34,6 @@ app.get('/', (req, res) => {
   // TO DO: how to access artist urls (db?)
   let wikiUrl = `https://www.wikiart.org/en/app/api/popularartists?json=1`
   axios.get(wikiUrl).then( function(apiResponse) {
-    console.log(apiResponse.data)
     res.render('index', {artist: apiResponse.data});
   })
 });
