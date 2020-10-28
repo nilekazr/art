@@ -26,7 +26,7 @@ router.post('/signup', (req, res) => {
       })(req, res)
     } else {
       // if not created, email already exists
-      req.flash('error', 'Email already exist!')
+      req.flash('error', 'Email already exists!')
       res.redirect('/auth/login')
     }
   }).catch(error => {

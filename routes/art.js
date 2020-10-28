@@ -22,17 +22,23 @@ router.get('/artists/', function(req,res){
   })
 });
 
-// router.post('/artists', function(req, res) {
-//   // TODO: Get form data and add a new record to DB
-//   console.log(req.body.name)
-//   db.art.findOrCreate({
-//     where: {
-//     url: req.body.name,
-//     }
-//   }).then(() => {
-//     res.redirect('artists')
-//   })
-// });
+router.post('/favorites', function(req, res) {
+  console.log(req.user.id);
+  db.user.findByPk(req.user.id)
+    .then(function(user) {
+      console.log(user);
+      db.art.findOrCreate({
+        where: {
+          url: req.body.name
+        }
+      }).then(function([art, created]){
+        user.addArt(art).then(function(relationInfo){
+          console.log(relationInfo)
+          res.render('favorites');
+        });
+      })
+    });
+});
 
 router.get('/paintings', function(req, res){
   let randomNum = Math.floor(Math.random() * 10)
