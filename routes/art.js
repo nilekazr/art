@@ -14,23 +14,30 @@ app.use(express.urlencoded({extended: false}));
 
 // routes
 
-router.post('/artists', function(req, res) {
-  // TODO: Get form data and add a new record to DB
-  db.art.findOrCreate({
-    where: {
-    url: req.body.name,
-    }
-  }).then(() => {
-    res.redirect('artists')
-  })
-});
 
 router.get('/artists/', function(req,res){
-  console.log(req.query.url)
   let wikiUrl = `https://www.wikiart.org/en/${req.query.name}/?json=2`
   axios.get(wikiUrl).then((apiResponse) => {
     res.render('artists', {artist: apiResponse.data});
   })
+});
+
+router.post('/favorites', function(req, res) {
+  console.log(req.user.id);
+  db.user.findByPk(req.user.id)
+    .then(function(user) {
+      console.log(user);
+      db.art.findOrCreate({
+        where: {
+          url: req.body.name
+        }
+      }).then(function([art, created]){
+        user.addArt(art).then(function(relationInfo){
+          console.log(relationInfo)
+          res.render('favorites');
+        });
+      })
+    });
 });
 
 router.get('/paintings', function(req, res){

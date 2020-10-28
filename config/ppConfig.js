@@ -30,7 +30,7 @@ passport.use(new LocalStrategy({
     where: {email}
   }).then(user => {
     // if no user, or incorrect pw, cb(null, false)
-    if (!user || !user.validPassword(password)) {
+    if (!user || !user.password) {
       cb(null, false)
     } else {
       // log user in with cb(null, user)
