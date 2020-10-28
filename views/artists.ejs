@@ -1,5 +1,13 @@
 
 <h3 class="text-center">Artists</h3>
 
+<h4><%= artist.artistName %></h4>
 <img src="<%= artist.image %>" alt="">
-<p><%= artist.artistName %></p>
+<form method="POST" action="/favorites">
+  <input type="hidden" name="name" value="<%= artist.url %>">
+  <button class="btn btn-primary" type="submit">Add to Favorites</button>
+</form>
+
+<p><%= artist.biography %></p>
+
+<h4> Works by <%= artist.artistName %></h4>

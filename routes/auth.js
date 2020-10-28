@@ -3,6 +3,8 @@ const db = require('../models')
 const passport = require('../config/ppConfig')
 const router = express.Router();
 
+router.use(express.urlencoded({extended: false}));
+
 router.get('/signup', (req, res) => {
   res.render('auth/signup');
 });
@@ -24,7 +26,7 @@ router.post('/signup', (req, res) => {
       })(req, res)
     } else {
       // if not created, email already exists
-      req.flash('error', 'Email already exist!')
+      req.flash('error', 'Email already exists!')
       res.redirect('/auth/login')
     }
   }).catch(error => {
@@ -42,7 +44,7 @@ router.post('/login', passport.authenticate('local', {
   successRedirect: '/',
   failureRedirect: '/auth/login',
   failureFlash: 'Invalid username or password',
-  successFlash: 'Login successful!'
+  successFlash: 'Login successful!',
 }))
 
 router.get('/logout', (req, res) => {
