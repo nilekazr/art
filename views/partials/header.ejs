@@ -10,8 +10,10 @@
   </div>
   <div class="top-bar-right">
     <ul class="menu">
+      <button class="button" data-open="loginSignupModal">Login / Signup</button>
       <% if (!currentUser) { %>
-        <li><button class="button" data-open="loginSignupModal">Login / Signup</button></li>
+        <li><a href="/auth/login">Login</a></li>
+        <li><a href="/auth/signup">Signup</a></li>
       <% } else { %>
         <li><a href="/auth/logout">Logout</a></li>
       <% } %>
@@ -21,15 +23,7 @@
 
 <!-- This is the first modal -->
 <div class="reveal" id="loginSignupModal" data-reveal>
-  <form action="/auth/login" method="POST">
-    <label for="auth-email">Email</label>
-    <input id="auth-email" type="email" name="email">
-  
-    <label for="auth-password">Password</label>
-    <input id="auth-password" type="password" name="password">
-  
-    <input type="submit" value="Log In!">
-  </form>
+  <p>This is where the login form should be.</p>
   <button class="button" data-open="signupModal">Sign Up!</button>
   <button class="close-button" data-close aria-label="Close reveal" type="button">
     <span aria-hidden="true">&times;</span>
@@ -38,18 +32,7 @@
 
 <!-- This is the nested modal -->
 <div class="reveal" id="signupModal" data-reveal>
-  <form action="/auth/signup" method="POST">
-    <label for="new-email">Email</label>
-    <input id="new-email" type="email" name="email">
-  
-    <label for="new-name">Name</label>
-    <input id="new-name" type="text" name="name">
-  
-    <label for="new-password">Password</label>
-    <input id="new-password" type="password" name="password">
-  
-    <input type="submit" value="Sign Up!">
-  </form>
+  <p>This is where the signup form should be.</p>
   <button class="close-button" data-close aria-label="Close reveal" type="button">
     <span aria-hidden="true">&times;</span>
   </button>
