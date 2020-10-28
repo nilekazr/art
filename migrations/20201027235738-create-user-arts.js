@@ -11,7 +11,7 @@ module.exports = {
       userId: {
         type: Sequelize.INTEGER
       },
-      artContentId: {
+      artId: {
         type: Sequelize.INTEGER
       },
       createdAt: {
