@@ -14,24 +14,25 @@ app.use(express.urlencoded({extended: false}));
 
 // routes
 
-router.post('/artists', function(req, res) {
-  // TODO: Get form data and add a new record to DB
-  db.art.findOrCreate({
-    where: {
-    url: req.body.name,
-    }
-  }).then(() => {
-    res.redirect('artists')
-  })
-});
 
 router.get('/artists/', function(req,res){
-  console.log(req.query.url)
   let wikiUrl = `https://www.wikiart.org/en/${req.query.name}/?json=2`
   axios.get(wikiUrl).then((apiResponse) => {
     res.render('artists', {artist: apiResponse.data});
   })
 });
+
+// router.post('/artists', function(req, res) {
+//   // TODO: Get form data and add a new record to DB
+//   console.log(req.body.name)
+//   db.art.findOrCreate({
+//     where: {
+//     url: req.body.name,
+//     }
+//   }).then(() => {
+//     res.redirect('artists')
+//   })
+// });
 
 router.get('/paintings', function(req, res){
   let randomNum = Math.floor(Math.random() * 10)
