@@ -11,12 +11,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.user.hasMany(models.art)
+      models.user.belongsToMany(models.art, {through: "userArts"})
     }
   };
   user.init({
-    id: {type: DataTypes.INTEGER,
-    primaryKey: true, },
     name: DataTypes.STRING,
     email: DataTypes.STRING,
     password: DataTypes.STRING

@@ -19,8 +19,7 @@ router.post('/', function(req, res) {
   console.log(req.body.name)
   db.art.findOrCreate({
     where: {
-    artistUrl: req.body.name,
-
+    url: req.body.name,
     }
   })
   .then(() => {
