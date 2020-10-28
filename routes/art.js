@@ -10,13 +10,12 @@ const db = require('../models');
 // middleware
 app.set('view engine', 'ejs');
 
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({extended: false}));
 
 // routes
 
 router.post('/artists', function(req, res) {
   // TODO: Get form data and add a new record to DB
-  // console.log(req.body.name)
   db.art.findOrCreate({
     where: {
     url: req.body.name,
