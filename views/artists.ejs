@@ -23,7 +23,7 @@
   
   <h4 class="text-center"> Works by <%= artist.artistName %></h4>
     <div class="grid-x grid-padding-x align-middle">
-      <% for (let i = 0; i < 7; i ++) { %> 
+      <% for (let i = 0; i < 7; i ++) { %>
         <div class="cell large-3 medium-2 align-justify">
           <img src="<%= paintings[i].image %>" alt="">
         </div>
@@ -31,24 +31,3 @@
     </div>
 </div>
 
-<<<<<<< HEAD
-<h4><%= artist.artistName %></h4>
-<img src="<%= artist.image %>" alt="">
-<form method="POST" action="/favorites">
-  <input type="hidden" name="name" value="<%= artist.url %>">
-  <button class="btn btn-primary" type="submit">Add to Favorites</button>
-</form>
-
-
-<% let bio = artist.biography.replace(/\s*\[.*?\]\s*/g, " ") %> 
-<% let bioArr = bio.split(" ").splice(0, 200).join(" ") %> 
-  <%= `${bioArr}... ` %> <a href="<%= artist.story %>" target="_blank">Read More</a>
-
-
-<h4> Works by <%= artist.artistName %></h4>
-
-<% for (let i = 0; i < 7; i ++) { %> 
-  <img src="<%= paintings[i].image %>" alt="">
-<% } %> 
-=======
->>>>>>> submain

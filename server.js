@@ -18,33 +18,32 @@ app.use(layouts);
 app.use(session ({
   secret: process.env.SESSION_SECRET,
   resave: false,
-  saveUninitialized: true
+  saveUninitialized: true,
+  cookie: {
+    maxAge: 3600000
+  }
 }))
 
+
 app.use(flash())
+app.use(passport.initialize())
+app.use(passport.session())
+
 
 app.use((req, res, next) => {
-  // before every route, attach flash messages and current user to res.locals
   res.locals.alerts = req.flash()
   res.locals.currentUser = req.user
   next()
 })
 
 app.get('/', (req, res) => {
-  // TO DO: how to access artist urls (db?)
   let wikiUrl = `https://www.wikiart.org/en/app/api/popularartists?json=1`
   axios.get(wikiUrl).then( function(apiResponse) {
     res.render('index', {artist: apiResponse.data});
   })
 });
 
-// the following two lines must be below config of session
-app.use(passport.initialize())
-app.use(passport.session())
 
-
-// when isLogged, redirect to home page instead.
-// the login/signup section to change 
 app.get('/', isLoggedIn, (req, res) => {
   res.render('/');
 });
