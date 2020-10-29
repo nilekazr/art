@@ -1,18 +1,25 @@
 <div class="grid-container">
-  <form action="/auth/login" method="POST">
-    <div class="grid-x grid-padding-x align-middle">
-    <div class="small-6 cell">
-      <label for="auth-email">Email</label>
-      <input id="auth-email" type="email" name="email">
-    </div>
-    <div class="small-6 cell">
-      <label for="auth-password">Password</label>
-      <input id="auth-password" type="password" name="password">
-    </div>
 
-      <div class="cell">
-        <input type="submit" class="button primary" value="Log In">
-      </div>
+  <div class="media-object align-center">
+    <div class="media-object-section">
+        <img src="/assets/lhooq.jpg">
     </div>
-  </form>
+        <div class="media-object-section">
+          <form action="/auth/login" method="POST">
+            <div class="grid-y grid-padding-y">
+              <div class="cell small-6">
+                <label for="auth-email">E-mail</label>
+                <input id="auth-email" type="email" name="email">
+              </div>
+              <div class="cell small-6">
+                <label for="auth-password">Password</label>
+                <input id="auth-password" type="password" name="password">
+              </div>        
+              <div class="cell">
+                <input type="submit" class="button primary" value="Log In">
+              </div>
+            </div>
+          </form>
+        </div>
+  </div>
 </div>
