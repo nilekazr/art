@@ -1,10 +1,10 @@
 <h1 class="text-center">Paintings</h1>
 
 <div class="grid-container">
-  <div class="grid-x">
+  <div class="grid-x grid-padding-x align-middle">
     <% for (let i = 0; i < paintings.length; i++) { %>
       <% let randomNum = Math.floor(Math.random() * 60) %> 
-      <div class="cell large-4">
+      <div class="cell medium-4 small-2 align-justify">
         <img src="<%= paintings[randomNum].image %>" alt="">
         <p><%= paintings[randomNum].title %></p>
       </div>

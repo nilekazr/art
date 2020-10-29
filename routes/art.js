@@ -26,22 +26,32 @@ router.post('/artists', function(req, res) {
 });
 
 router.get('/artists/', function(req,res){
-  console.log(req.user);
-  console.log(req.query.url)
-  let wikiUrl = `https://www.wikiart.org/en/${req.query.name}/?json=2`
-  axios.get(wikiUrl).then((apiResponse) => {
-    res.render('artists', {artist: apiResponse.data});
+  let artistInfoUrl = `https://www.wikiart.org/en/${req.query.name}/?json=2`
+  let paintingInfoUrl = `https://www.wikiart.org/en/${req.query.name}/?json=1`
+  Promise.all([
+    axios.get(artistInfoUrl),
+    axios.get(paintingInfoUrl)
+  ]).then((apiResponse) => {
+    res.render('artists', {
+      artist: apiResponse[0].data,
+      paintings: apiResponse[1].data
+    });
   })
 
-  router.post('/artists', function(req, res) {
-    console.log(req.user);
-    db.user.findOrCreate({
-      where: {
-        name: req.user.name,
-        email: req.user.email,
-        password: req.user.password,
-      }
-    }).then(function([user, created]) {
+// router.get('/artists/', function(req,res){
+  
+//   axios.get(wikiUrlTwo).then((apiResponseTwo) => {
+//     res.render('artists', {artistTwo: apiResponseTwo.data});
+//   }).then(() => {
+    
+//   })
+// });
+
+
+router.post('/favorites', function(req, res) {
+  console.log(req.user.id);
+  db.user.findByPk(req.user.id)
+    .then(function(user) {
       console.log(user);
         db.art.findOrCreate({
           where: {
