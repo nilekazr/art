@@ -32,6 +32,7 @@ app.use((req, res, next) => {
   // before every route, attach flash messages and current user to res.locals
   res.locals.alerts = req.flash()
   res.locals.currentUser = req.user
+  console.log("current", req.user)
   next()
 })
 
