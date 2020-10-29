@@ -1,5 +1,4 @@
 
-// requirements
 const express = require('express');
 const app = express();
 const db = require('../models');
@@ -7,14 +6,14 @@ const router = express.Router();
 const axios = require('axios');
 const layouts = require('express-ejs-layouts');
 
-// middleware
+
 app.set('view engine', 'ejs');
 
 app.use(express.urlencoded({ extended: false }));
 
-// routes
 
 router.post('/artists', function(req, res) {
+  // TODO: Get form data and add a new record to DB
   // TODO: Get form data and add a new record to DB
   /*db.art.findOrCreate({
     where: {
