@@ -25,6 +25,8 @@ app.use(session ({
 }))
 
 app.use(flash())
+app.use(passport.initialize())
+app.use(passport.session())
 
 app.use((req, res, next) => {
   // before every route, attach flash messages and current user to res.locals
@@ -40,11 +42,6 @@ app.get('/', (req, res) => {
     res.render('index', {artist: apiResponse.data});
   })
 });
-
-// the following two lines must be below config of session
-app.use(passport.initialize())
-app.use(passport.session())
-
 
 // when isLogged, redirect to home page instead.
 // the login/signup section to change 
