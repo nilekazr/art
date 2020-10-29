@@ -6,7 +6,10 @@
           <img src="<%= artist[i].image %>" alt="">
             <form method="GET" action="/artists">
               <input type="hidden" name="name" value="<%= artist[i].url %>">
-              <button class="button clear secondary" type="submit"><%= artist[i].artistName %></button>
+              <div class="button-group align-center">
+                <button class="button clear secondary align-center" type="submit"><%= artist[i].artistName %></button>
+              </div>
+              
             </form>
         </div>
       <% } %>

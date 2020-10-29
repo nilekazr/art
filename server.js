@@ -28,7 +28,10 @@ app.use(session ({
 app.use(flash())
 app.use(passport.initialize())
 app.use(passport.session())
+<<<<<<< HEAD
 
+=======
+>>>>>>> submain
 
 app.use((req, res, next) => {
   res.locals.alerts = req.flash()
@@ -43,7 +46,12 @@ app.get('/', (req, res) => {
   })
 });
 
+<<<<<<< HEAD
 
+=======
+// when isLogged, redirect to home page instead.
+// the login/signup section to change 
+>>>>>>> submain
 app.get('/', isLoggedIn, (req, res) => {
   res.render('/');
 });
