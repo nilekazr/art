@@ -18,7 +18,10 @@ app.use(layouts);
 app.use(session ({
   secret: process.env.SESSION_SECRET,
   resave: false,
-  saveUninitialized: true
+  saveUninitialized: true,
+  cookie: {
+    maxAge: 3600000
+  }
 }))
 
 app.use(flash())
