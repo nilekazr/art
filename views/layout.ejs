@@ -8,7 +8,6 @@
     <!-- Compressed Foundation CSS and JavaScript -->
   <link rel="stylesheet" href="/css/foundation.css">
   <link rel="stylesheet" href="/css/icons/foundation-icons.css">
-  <script src="/js/foundation.js"></script>
 </head>
 <body>
   <%- include("partials/header") %>
@@ -18,5 +17,12 @@
   <%- body %>
   
   <%- include("partials/footer") %>
+
+  <script src="/js/vendor/jquery.js"></script>
+  <script src="/js/vendor/what-input.js"></script>
+  <script src="/js/vendor/foundation.min.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
   </body>
 </html>

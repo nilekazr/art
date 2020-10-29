@@ -1,8 +1,22 @@
-<h2>Favourites</h2>
-
-<h3></h3>
-<% for (let i = 0; i < favourites.length; i ++) { %>  
-    <div class="cell large-3">
-      <img src="<%= favourites[i].image %>" alt="">
-    </div>
+<div class="grid-container">
+  <h1 class="text-center">Favourites</h1>
+  <div class="grid-x grid-padding-x align-middle">  
+    <% for (let i = 0; i < favourites.length; i ++) { %>  
+      <div class="cell large-3 medium-2 align-justify">
+        <img src="<%= favourites[i].image %>" alt="">
+        <form method="GET" action="/artists">
+          <input type="hidden" name="name" value="<%= favourites[i].url %>">
+          <div class="button-group align-center">
+            <button class="button clear secondary align-center" type="submit"><%= favourites[i].artistName %></button>
+            <span>
+              <form method="POST" action="/favorites">
+                <input type="hidden" name="name" value="<%= favourites.url %>">
+                <button type="submit"><i class="fi-dislike"></i></button>
+              </form>
+            </span>
+          </div>            
+        </form>
+      </div>
     <% } %>
+  </div>            
+</div>
