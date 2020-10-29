@@ -1,22 +1,41 @@
-<div class="top-bar">
-  <div class="top-bar-left">
-    <ul class="vertical medium-horizontal menu">
-      <li class="menu-text">art.</li>
-      <li><a href="/">Home</a></li>
-      <li><a href="/paintings">Paintings</a></li>
-      <li><a href="/artists">Artists</a></li>
-      <li><a href="/favorites">Favourites</a></li>
-    </ul>
-  </div>
-  <div class="top-bar-right">
-    <ul class="menu">
-      <% if (!currentUser) { %>
-        <li><a href="/auth/login">Login</a></li>
-        <li><a href="/auth/signup">Signup</a></li>
-      <% } else { %>
-        <li><a href="/profile">Profile</a></li>
-        <li><a href="/auth/logout">Logout</a></li>
-      <% } %>
-    </ul>
-  </div>
+<div class="grid-container">
+
+  <div class="top-bar">
+    <div class="top-bar-left">
+      <ul class="vertical medium-horizontal menu">
+        <li class="menu-text">art.</li>
+        <li><a href="/">Artists</a></li>
+        <li><a href="/paintings">Paintings</a></li>
+        <li><a href="/favorites">Favourites</a></li>
+      </ul>
+    </div>
+    <div class="top-bar-right">
+      <ul class="menu">
+        <button class="button" data-open="loginSignupModal">Login / Signup</button>
+        <% if (!currentUser) { %>
+          <li><a href="/auth/login">Login</a></li>
+          <li><a href="/auth/signup">Signup</a></li>
+          <% } else { %>
+            <li><a href="/auth/logout">Logout</a></li>
+            <% } %>
+          </ul>
+        </div>
+      </div>
+    </div>
+      
+      <!-- This is the first modal -->
+      <div class="reveal" id="loginSignupModal" data-reveal>
+        <p>This is where the login form should be.</p>
+        <button class="button" data-open="signupModal">Sign Up!</button>
+        <button class="close-button" data-close aria-label="Close reveal" type="button">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      <!-- This is the nested modal -->
+      <div class="reveal" id="signupModal" data-reveal>
+  <p>This is where the signup form should be.</p>
+  <button class="close-button" data-close aria-label="Close reveal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
 </div>
