@@ -1,9 +1,18 @@
-<form action="/auth/login" method="POST">
-  <label for="auth-email">Email</label>
-  <input id="auth-email" type="email" name="email">
+<div class="grid-container">
+  <form action="/auth/login" method="POST">
+    <div class="grid-x grid-padding-x align-middle">
+    <div class="small-6 cell">
+      <label for="auth-email">Email</label>
+      <input id="auth-email" type="email" name="email">
+    </div>
+    <div class="small-6 cell">
+      <label for="auth-password">Password</label>
+      <input id="auth-password" type="password" name="password">
+    </div>
 
-  <label for="auth-password">Password</label>
-  <input id="auth-password" type="password" name="password">
-
-  <input type="submit" value="Log In">
-</form>
+      <div class="cell">
+        <input type="submit" class="button primary" value="Log In">
+      </div>
+    </div>
+  </form>
+</div>

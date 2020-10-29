@@ -1,13 +1,34 @@
 
-<h3 class="text-center">Artists</h3>
+<div class="grid-container">
+  <h2 class="text-center"><%= artist.artistName %></h4>
 
-<h4><%= artist.artistName %></h4>
-<img src="<%= artist.image %>" alt="">
-<form method="POST" action="/favorites">
-  <input type="hidden" name="name" value="<%= artist.url %>">
-  <button class="btn btn-primary" type="submit">Add to Favorites</button>
-</form>
-
-<p><%= artist.biography %></p>
-
-<h4> Works by <%= artist.artistName %></h4>
+  <div class="media-object">
+    <div class="media-object-section align-middle">
+      <img src="<%= artist.image %>" alt="">
+      <div class="align-center">
+        <p>
+          <form method="POST" action="/favorites">
+            <input type="hidden" name="name" value="<%= artist.url %>">
+            <button class="hollow button secondary" type="submit"><i class="fi-heart"></i></button>
+          </form>
+        </p>
+      </div>
+    </div>
+    <div class="media-object-section">
+      <p><%= artist.biography %></p>
+    </div>
+  </div>
+  
+  <h4 class="text-center"> Works by <%= artist.artistName %></h4>
+  <div class="grid-x grid-padding-x align-middle">
+    <div class="cell large-4 align-justify">
+      <p class="text-center">Image goes here</p>
+    </div>
+    <div class="cell large-4 align-justify">
+      <p class="text-center">Image goes here</p>
+    </div>
+    <div class="cell large-4 align-justify">
+      <p class="text-center">Image goes here</p>
+    </div>
+  </div>
+</div>
