@@ -29,15 +29,22 @@ router.get('/artists/', function(req,res){
   })
 });
 
-// router.get('/artists/', function(req,res){
-  
-//   axios.get(wikiUrlTwo).then((apiResponseTwo) => {
-//     res.render('artists', {artistTwo: apiResponseTwo.data});
-//   }).then(() => {
-    
-//   })
-// });
-
+router.get('/favorites', function(req, res){
+  db.user.findOne({
+    where: {
+      id: req.user.id
+    }
+    }).then(function(returnedUser){
+        returnedUser.getArts().then(function(returnedArt){
+          console.log(returnedArt)
+          axios.get(`https://www.wikiart.org/en/search/${returnedArt.url}/1?json=2/`)
+        .then(function(apiResponse){
+          res.render('favorites', {favorites: apiResponse.data});
+          // console.log(apiResponse.data)
+            });
+          });
+        });
+      });
 
 router.post('/favorites', function(req, res) {
   console.log(req.user.id);
@@ -50,12 +57,13 @@ router.post('/favorites', function(req, res) {
         }
       }).then(function([art, created]){
         user.addArt(art).then(function(relationInfo){
-          console.log(relationInfo)
+          // console.log(relationInfo)
           res.render('favorites');
         });
       })
     });
 });
+
 
 router.get('/paintings', function(req, res){
   let randomNum = Math.floor(Math.random() * 10)

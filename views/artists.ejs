@@ -8,7 +8,7 @@
   <button class="btn btn-primary" type="submit">Add to Favorites</button>
 </form>
 
-<%  %> 
+
 <% let bio = artist.biography.replace(/\s*\[.*?\]\s*/g, " ") %> 
 <% let bioArr = bio.split(" ").splice(0, 200).join(" ") %> 
   <%= `${bioArr}... ` %> <a href="<%= artist.story %>" target="_blank">Read More</a>
