@@ -8,6 +8,14 @@
   <button class="btn btn-primary" type="submit">Add to Favorites</button>
 </form>
 
-<p><%= artist.biography %></p>
+<%  %> 
+<% let bio = artist.biography.replace(/\s*\[.*?\]\s*/g, " ") %> 
+<% let bioArr = bio.split(" ").splice(0, 200).join(" ") %> 
+  <%= `${bioArr}... ` %> <a href="<%= artist.story %>" target="_blank">Read More</a>
+
 
 <h4> Works by <%= artist.artistName %></h4>
+
+<% for (let i = 0; i < 7; i ++) { %> 
+  <img src="<%= paintings[i].image %>" alt="">
+<% } %> 

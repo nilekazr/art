@@ -16,11 +16,28 @@ app.use(express.urlencoded({extended: false}));
 
 
 router.get('/artists/', function(req,res){
-  let wikiUrl = `https://www.wikiart.org/en/${req.query.name}/?json=2`
-  axios.get(wikiUrl).then((apiResponse) => {
-    res.render('artists', {artist: apiResponse.data});
+  let artistInfoUrl = `https://www.wikiart.org/en/${req.query.name}/?json=2`
+  let paintingInfoUrl = `https://www.wikiart.org/en/${req.query.name}/?json=1`
+  Promise.all([
+    axios.get(artistInfoUrl),
+    axios.get(paintingInfoUrl)
+  ]).then((apiResponse) => {
+    res.render('artists', {
+      artist: apiResponse[0].data,
+      paintings: apiResponse[1].data
+    });
   })
 });
+
+// router.get('/artists/', function(req,res){
+  
+//   axios.get(wikiUrlTwo).then((apiResponseTwo) => {
+//     res.render('artists', {artistTwo: apiResponseTwo.data});
+//   }).then(() => {
+    
+//   })
+// });
+
 
 router.post('/favorites', function(req, res) {
   console.log(req.user.id);
