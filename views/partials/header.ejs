@@ -1,0 +1,81 @@
+<div class="grid-container top-bar topbottomBack">
+  <div class="top-bar-left">
+    <ul class="vertical medium-horizontal menu topbottomBack">
+      <li class="menu-text">art.</li>
+      <li><a href="/">Artists</a></li>
+      <li><a href="/paintings">Paintings</a></li>
+      <% if (currentUser) { %>
+      <li><a href="/favorites">Favourites</a></li>
+      <% } %>
+      <%- include("alerts") %>
+    </ul>
+    <div class="menu align-center">
+    </div>
+  </div>
+  <div class="top-bar-right">
+    <ul class="menu topbottomBack">
+      <% if (!currentUser) { %>
+        <button class="button small" data-open="loginSignupModal">Login / Signup</button>
+      <% } else { %>
+        <li><a class="button warning small" href="/auth/logout">Logout</a></li>
+      <% } %>
+    </ul>
+  </div>
+      
+      <!-- This is the first modal -->
+  <div class="reveal" id="loginSignupModal" data-reveal>
+    <form action="/auth/login" method="POST">
+      <div class="grid-y grid-padding-y">
+        <div class="cell small-6">
+          <h2 class="text-center">Login</h2>
+          <p>Please enter your email and password to enter.</p>
+          <label for="auth-email">E-mail Address:</label>
+          <input id="auth-email" type="email" name="email">
+        </div>
+        <div class="cell small-6">
+          <label for="auth-password">Password:</label>
+          <input id="auth-password" type="password" name="password">
+        </div>        
+        <div class="cell">
+          <input type="submit" class="button primary" value="Log In">
+        </div>
+      </div>
+    </form>
+    <p>To create an account, please click the Sign Up button below.</p>
+    <span>
+      <button class="button secondary" data-open="signupModal">Sign Up!</button>
+    </span>
+      <button class="close-button" data-close aria-label="Close reveal" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+    
+    <!-- This is the nested modal -->
+  <div class="reveal" id="signupModal" data-reveal>
+    <form action="/auth/signup" method="POST">
+      <div class="grid-y grid-padding-y">
+        <h2 class="text-center">Create Account</h2>
+        <p>Please enter your name, e-mail address, and password in the fields below to create the account.</p>
+        <div class="cell small-6">
+          <label for="new-name">Name:</label>
+          <input id="new-name" type="text" name="name">
+        </div>
+        <div class="cell small-6">
+          <label for="new-email">E-mail Address:</label>
+          <input id="new-email" type="email" name="email">
+        </div>
+        <div class="cell small-6">
+          <label for="new-password">Password</label>
+          <input id="new-password" type="password" aria-describedby="passwordHelpText" name="password">
+          <p class="help-text" id="passwordHelpText">Your password must have at least 8 and up to 99 characters.</p>
+        </div>      
+        <div class="cell">
+          <input type="submit" class="button success" value="Sign Up!">
+        </div>
+      </div>
+    </form>
+    <button class="close-button" data-close aria-label="Close reveal" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</div>

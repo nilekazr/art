@@ -1,3 +1,25 @@
-<h2>Favorites</h2>
-
-<h3></h3>
+<div class="grid-container">
+  <h1 class="text-center">Favourites</h1>
+  <br>
+  <div class="grid-x grid-padding-x align-middle">  
+    <% for (let i = 0; i < favorites.length; i ++) { %>  
+      <div class="cell large-3 medium-2 align-justify">
+        <img src="<%= favorites[i].image %>" alt="">
+        <form method="GET" action="/artists">
+          <input type="hidden" name="name" value="<%= favorites[i].url %>">
+          <div class="button-group align-center">
+            <button class="button clear secondary align-center artName" type="submit"><%= favorites[i].artistName %></button>
+          </form>
+          <span>
+            <form method="POST" action="/favorites/<%= favorites[i].url %>/?_method=DELETE">
+              <input type="hidden" value="Delete">
+              <span data-tooltip class="right" tabindex="1" title="Remove from favourites.">
+                <button type="submit"><i class="fi-dislike" style="font-size: 24px;"></i></button>
+              </span>
+            </form>
+          </span>
+          </div>            
+      </div>
+    <% } %>
+  </div>            
+</div>

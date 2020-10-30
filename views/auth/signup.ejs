@@ -1,12 +1,29 @@
-<form action="/auth/signup" method="POST">
-  <label for="new-email">Email</label>
-  <input id="new-email" type="email" name="email">
-
-  <label for="new-name">Name</label>
-  <input id="new-name" type="text" name="name">
-
-  <label for="new-password">Password</label>
-  <input id="new-password" type="password" name="password">
-
-  <input type="submit" value="Sign up">
-</form>
+<div class="grid-container">
+  <div class="media-object align-center">
+    <div class="media-object-section">
+      <img src= "/assets/goya-saturna.jpg" alt="Saturn Devouring One of His Sons (de Goya)">
+    </div>
+    <div class="media-object-section">
+      <form action="/auth/signup" method="POST">
+        <div class="grid-y grid-padding-y">
+          <div class="cell small-6">
+            <label for="new-name">Name</label>
+            <input id="new-name" type="text" name="name">
+          </div>
+          <div class="cell small-6">
+            <label for="new-email">E-mail</label>
+            <input id="new-email" type="email" name="email">
+          </div>
+          <div class="cell small-6">
+            <label for="new-password">Password</label>
+            <input id="new-password" type="password" aria-describedby="passwordHelpText" name="password">
+            <p class="help-text" id="passwordHelpText">Your password must have at least 8 and up to 99 characters.</p>
+          </div>
+          <div class="cell">
+            <input type="submit" class="button success" value="Sign up">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

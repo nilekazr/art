@@ -1,7 +1,16 @@
-<% for (let i = 0; i < paintings.length; i++) { %>
-  <% let randomNum = Math.floor(Math.random() * 60) %> 
-  <div>
-    <img src="<%= paintings[randomNum].image %>" alt="">
-    <p></p>
+<h1 class="text-center">Paintings</h1>
+<br>
+<div class="grid-container">
+  <div class="grid-x grid-padding-x align-middle">
+    <% for (let i = 0; i < paintings.length; i++) { %>
+      <% let randomNum = Math.floor(Math.random() * 60) %> 
+        <div class="cell medium-4 small-2 align-justify">
+          <img src="<%= paintings[randomNum].image %>" alt="">
+            <div class="button-group align-center">
+              <button class="button clear secondary align-center artName"><%= paintings[randomNum].title %></button>
+            </div>
+        </div>
+    <% } %>
+      <!-- TODO: Figure out how to skip 404 images, with standard urls -->
   </div>
-<% } %>
+</div>

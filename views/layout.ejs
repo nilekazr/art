@@ -2,28 +2,27 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>art.</title>
+    <link rel="shortcut icon" href="favicon.png">
     <link rel="stylesheet" href="/css/style.css">
-  </head>
-  <body>
-    <header>
-      <nav>
-        <ul>
-          <% if (!currentUser) { %>
-            <li><a href="/auth/signup">Signup</a></li>
-            <li><a href="/auth/login">Login</a></li>
-          <% } else { %>
-            <li><a href="/auth/logout">Logout</a></li>
-            <li><a href="/profile">Profile</a></li>
-          <% } %>
-        </ul>
-      </nav>
-    </header>
+    <!-- Compressed Foundation CSS -->
+  <link rel="stylesheet" href="/css/foundation.css">
+  <link rel="stylesheet" href="/css/icons/foundation-icons.css">
+</head>
+<body>
+  <%- include("partials/header") %>
+  
+  <%- body %>
+  
+  <%- include("partials/footer") %>
 
-    <%- include("partials/alerts") %>
-
-    <h1>Authentication</h1>
-    <%- body %>
+<!-- Foundation JavaScript and additional required libraries -->
+  <script src="/js/vendor/jquery.js"></script>
+  <script src="/js/vendor/what-input.js"></script>
+  <script src="/js/vendor/foundation.min.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
   </body>
 </html>

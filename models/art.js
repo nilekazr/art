@@ -15,10 +15,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   art.init({
-    contentId: DataTypes.INTEGER,
-    title: DataTypes.STRING,
-    artistName: DataTypes.STRING,
-    artistUrl: DataTypes.STRING
+    url: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'art',

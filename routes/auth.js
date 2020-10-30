@@ -3,12 +3,15 @@ const db = require('../models')
 const passport = require('../config/ppConfig')
 const router = express.Router();
 
+
+router.use(express.urlencoded({extended: false}));
+
+
 router.get('/signup', (req, res) => {
   res.render('auth/signup');
 });
 
 router.post('/signup', (req, res) => {
-  // finding or creating user, given name, password, email
   db.user.findOrCreate({
     where: { email: req.body.email},
     defaults: {
@@ -17,18 +20,15 @@ router.post('/signup', (req, res) => {
     }
   }).then(([user, created]) => {
     if (created) {
-      // if created, this means success, we can redirect to home
       passport.authenticate('local', {
         successRedirect: '/',
-        successFlash: 'Account created and user logged in!'
+        successFlash: 'Account created. Welcome to art.!'
       })(req, res)
     } else {
-      // if not created, email already exists
-      req.flash('error', 'Email already exist!')
+      req.flash('error', 'E-mail address already exists!')
       res.redirect('/auth/login')
     }
   }).catch(error => {
-    // if an error occurs, let's see error
     req.flash('error', error.message)
     res.redirect('/auth/signup')
   })  
@@ -42,14 +42,15 @@ router.post('/login', passport.authenticate('local', {
   successRedirect: '/',
   failureRedirect: '/auth/login',
   failureFlash: 'Invalid username or password',
-  successFlash: 'Login successful!'
+  successFlash: 'Welcome back to art.!',
 }))
 
 router.get('/logout', (req, res) => {
   req.logout()
-  req.flash('success', 'You have logged out.')
+  req.flash('goodbye', 'SEE YOU SPACE COWBOY')
   res.redirect('/')
 })
+
 
 
 module.exports = router;
