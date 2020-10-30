@@ -2,21 +2,21 @@
   <h1 class="text-center">Favourites</h1>
   <br>
   <div class="grid-x grid-padding-x align-middle">  
-    <% for (let i = 0; i < favourites.length; i ++) { %>  
+    <% for (let i = 0; i < favorites.length; i ++) { %>  
       <div class="cell large-3 medium-2 align-justify">
-        <img src="<%= favourites[i].image %>" alt="">
+        <img src="<%= favorites[i].image %>" alt="">
         <form method="GET" action="/artists">
-          <input type="hidden" name="name" value="<%= favourites[i].url %>">
+          <input type="hidden" name="name" value="<%= favorites[i].url %>">
           <div class="button-group align-center">
-            <button class="button clear secondary align-center artName" type="submit"><%= favourites[i].artistName %></button>
-            <span>
-              <form method="POST" action="/favorites">
-                <input type="hidden" name="name" value="<%= favourites.url %>">
-                <button type="submit"><i class="fi-dislike" style="font-size: 24px;"></i></button>
-              </form>
-            </span>
+            <button class="button clear secondary align-center" type="submit"><%= favorites[i].artistName %></button>
+          </form>
+          <span>
+            <form method="POST" action="/favorites/<%= favorites[i].url %>/?_method=DELETE">
+              <input type="hidden" value="Delete">
+              <button type="submit"><i class="fi-dislike"></i></button>
+            </form>
+          </span>
           </div>            
-        </form>
       </div>
     <% } %>
   </div>            
