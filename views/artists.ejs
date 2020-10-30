@@ -1,24 +1,29 @@
 
 <div class="grid-container">
-  <h1 class="text-center"><%= artist.artistName %></h1>
-  <br>
+  <div class="grid-x">
+      <div class="cell large-6 align-middle">
+        <h1><%= artist.artistName %></h1>
+      </div>
+      <div class="cell large-6 align-self-middle">
+        <% if (currentUser) { %>
+
+            <form method="POST" action="/favorites">
+              <span data-tooltip class="right" tabindex="0" title="Add to favourites.">
+                <input type="hidden" name="name" value="<%= artist.url %>">
+                <button type="submit"><i class="fi-heart" style="font-size: 24px;"></i></button>
+              </span>
+            </form>
+        <% } else { %>
+          <span data-tooltip class="right" tabindex="1" title="Please login to favourite this artist.">
+            <i class="step fi-info" style="font-size: 24px;"></i>
+          </span>
+        <% } %>
+      </div>
+  </div>
+<br>
   <div class="media-object">
     <div class="media-object-section align-middle">
       <img src="<%= artist.image %>" alt="">
-      <% if (currentUser) { %>
-        <form method="POST" action="/favorites">
-          <p class="text-center">
-            <input type="hidden" name="name" value="<%= artist.url %>">
-            <button type="submit"><i class="fi-heart" style="font-size: 24px;"></i></button>
-          </p>
-          </form>
-        <% } else { %>
-            <p class="text-center">
-              <span data-tooltip class="right" tabindex="1" title="Please login to favourite this artist.">
-                <i class="step fi-info" style="font-size: 24px;"></i>
-              </span>
-            </p>
-            <% } %>
       </div>
     <div class="media-object-section">
       <% let bio = artist.biography.replace(/\s*\[.*?\]\s*/g, " ") %> 
@@ -29,7 +34,7 @@
   
   
   
-  <h4 class="text-center"> Works by <%= artist.artistName %></h4>
+  <h3 class="text-center"> Works by <%= artist.artistName %></h3>
     <div class="grid-x grid-padding-x align-middle">
       <% for (let i = 0; i < 7; i ++) { %>
         <div class="cell large-3 medium-2 align-justify">
