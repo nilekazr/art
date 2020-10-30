@@ -60,21 +60,22 @@ router.post('/favorites', (req, res) => {
         }
       }).then(([foundArt, created]) => {
         user.addArt(foundArt).then((relationInfo) => {
-        res.redirect('favorites');
+        res.redirect('/favorites');
         })
       })
-  })
+    })
 });
 
 router.delete('/favorites/:id', (req, res) => {
+let id = req.params.id
 db.art.findOne({
   where: {
-    url: req.params.id
+    url: id
   }
   }).then((foundArt) => {
     foundArt.destroy();
   })
-res.redirect('favorites')
+res.redirect('/favorites')
 })
 
 
