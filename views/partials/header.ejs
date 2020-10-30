@@ -1,16 +1,19 @@
-<div class="grid-container top-bar" style="background-color: mediumturquoise;">
+<div class="grid-container top-bar topbottomBack">
   <div class="top-bar-left">
-    <ul class="vertical medium-horizontal menu" style="background-color: mediumturquoise;">
+    <ul class="vertical medium-horizontal menu topbottomBack">
       <li class="menu-text">art.</li>
       <li><a href="/">Artists</a></li>
       <li><a href="/paintings">Paintings</a></li>
       <% if (currentUser) { %>
       <li><a href="/favorites">Favourites</a></li>
       <% } %>
+      <%- include("alerts") %>
     </ul>
+    <div class="menu align-center">
+    </div>
   </div>
   <div class="top-bar-right">
-    <ul class="menu" style="background-color: mediumturquoise;">
+    <ul class="menu topbottomBack">
       <% if (!currentUser) { %>
         <button class="button small" data-open="loginSignupModal">Login / Signup</button>
       <% } else { %>

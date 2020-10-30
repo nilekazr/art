@@ -1,10 +1,15 @@
 <% if (alerts.error) { %>
   <% alerts.error.forEach(msg => { %>
-    <div class="alert alert-error"><%= msg %></div>
+    <li class="callout small alert calloutStyle"><%= msg %></li>
   <% }); %>
 <% } %>
 <% if (alerts.success) { %>
   <% alerts.success.forEach(msg => { %>
-    <div class="alert alert-success"><%= msg %></div>
+    <li class="callout small success calloutStyle"><%= msg %></li>
+  <% }); %>
+<% } %>
+<% if (alerts.goodbye) { %>
+  <% alerts.goodbye.forEach(msg => { %>
+    <li class="callout small primary calloutStyle"><%= msg %></li>
   <% }); %>
 <% } %>
