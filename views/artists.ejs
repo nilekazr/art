@@ -1,36 +1,32 @@
 
 <div class="grid-container">
-  <div class="grid-x">
-      <div class="cell large-6 align-middle">
-        <h1><%= artist.artistName %></h1>
+    <h1 class="text-center"><%= artist.artistName %></h1>
+  <br>
+    
+    <div class="media-object">
+      <div class="media-object-section align-middle">
+        <img src="<%= artist.image %>" alt="">
       </div>
-      <div class="cell large-6 align-self-middle">
-        <% if (currentUser) { %>
-
-            <form method="POST" action="/favorites">
-              <span data-tooltip class="right" tabindex="0" title="Add to favourites.">
-                <input type="hidden" name="name" value="<%= artist.url %>">
-                <button type="submit"><i class="fi-heart" style="font-size: 24px;"></i></button>
-              </span>
-            </form>
-        <% } else { %>
-          <span data-tooltip class="right" tabindex="1" title="Please login to favourite this artist.">
-            <i class="step fi-info" style="font-size: 24px;"></i>
-          </span>
-        <% } %>
+      <% if (currentUser) { %>
+        <span>
+          <form method="POST" action="/favorites">
+            <span data-tooltip class="right" tabindex="0" title="Add to favourites.">
+              <input type="hidden" name="name" value="<%= artist.url %>">
+              <button type="submit"><i class="fi-heart" style="font-size: 24px;"></i></button>
+            </span>
+          </form>
+        </span>
+      <% } else { %>
+        <span data-tooltip class="right" tabindex="1" title="Please login to favourite this artist.">
+          <i class="step fi-info" style="font-size: 24px;"></i>
+        </span>
+      <% } %>
+      <div class="media-object-section">
+        <% let bio = artist.biography.replace(/\s*\[.*?\]\s*/g, " ") %> 
+        <% let bioArr = bio.split(" ").splice(0, 200).join(" ") %> 
+        <%= `${bioArr}... ` %> <a href="<%= artist.story %>" target="_blank">Read More</a>
       </div>
-  </div>
-<br>
-  <div class="media-object">
-    <div class="media-object-section align-middle">
-      <img src="<%= artist.image %>" alt="">
-      </div>
-    <div class="media-object-section">
-      <% let bio = artist.biography.replace(/\s*\[.*?\]\s*/g, " ") %> 
-      <% let bioArr = bio.split(" ").splice(0, 200).join(" ") %> 
-      <%= `${bioArr}... ` %> <a href="<%= artist.story %>" target="_blank">Read More</a>
     </div>
-  </div>
   
   
   
