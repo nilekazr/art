@@ -14,8 +14,7 @@ The aim of art. is to bring artists to the forefront, giving users the chance to
 * Nested forms in nested modals
 
 ## Screenshots
-![Screenshot1](screenshot1.png)
-![Screenshot2](screenshot2.png)
+![Art_ERD](/public/assets/project/Art_ERD.png)
 
 ## User Stories
 * User wants to create an account.
@@ -27,7 +26,7 @@ The aim of art. is to bring artists to the forefront, giving users the chance to
 
 
 ## Wireframes
-![Wireframes](piano-game-wireframes.png)
+![Art_Wireframe](/public/assets/project/Art_Wireframe.png)
 
 ## Technologies
 * Express.js
