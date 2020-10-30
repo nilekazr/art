@@ -10,4 +10,10 @@ db.art.findOne({
 res.redirect('favorites')
 })
 
-* Jeffrey:
+* Jeffrey: Nested forms in nested modals
+  <button class="button small" data-open="loginSignupModal">Login / Signup</button>
+    <div class="reveal" id="loginSignupModal" data-reveal>
+  <button class="button secondary" data-open="signupModal">Sign Up!</button>
+    <div class="reveal" id="signupModal" data-reveal>
+
+* Nile:
