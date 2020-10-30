@@ -1,18 +1,21 @@
-
 const express = require('express');
 const app = express();
 const db = require('../models');
 const router = express.Router();
 const axios = require('axios');
 const layouts = require('express-ejs-layouts');
+const methodOverride = require('method-override');
+const { request } = require('express');
 
 
 app.set('view engine', 'ejs');
 
-app.use(express.urlencoded({ extended: false }));
+
+app.use(methodOverride('_method'));
+app.use(express.urlencoded({extended: false}));
 
 
-router.get('/artists/', function(req,res){
+router.get('/artists/', (req,res) => {
   let artistInfoUrl = `https://www.wikiart.org/en/${req.query.name}/?json=2`
   let paintingInfoUrl = `https://www.wikiart.org/en/${req.query.name}/?json=1`
   Promise.all([
@@ -22,54 +25,57 @@ router.get('/artists/', function(req,res){
     res.render('artists', {
       artist: apiResponse[0].data,
       paintings: apiResponse[1].data
-    });
+    })
   })
 });
 
-router.get('/favorites', function(req, res){
-  db.user.findByPk(req.user.id).then(function(user){
-    user.getArts().then( function(arts){
-      console.log(arts)
-        let favourites = arts.map( art => {
-          return axios.get(`https://www.wikiart.org/en/${art.url}/?json=2`)
-            .then(responseData => responseData.data)
-        })
-        Promise.all(favourites).then(apiResponse => {
-          console.log(apiResponse);
-          res.render('favorites', {favourites: apiResponse})
-      });    
-    });
-  });
-});
-
-router.post('/favorites', function(req, res) {
-  console.log(req.user.id);
-  db.user.findByPk(req.user.id)
-    .then(function(user) {
-      console.log(user);
-        db.art.findOrCreate({
-          where: {
-            url: req.body.name
-          }
-        }).then(function([art, created]){
-          user.addArt(art).then(function(relationInfo){
-          res.redirect('/favorites');
-          });
-        });
-  });
-  // res.redirect('/favorites');
-});
-
-
-router.get('/paintings', function(req, res){
+router.get('/paintings', (req, res) => {
   let randomNum = Math.floor(Math.random() * 10)
-  console.log(randomNum)
   let wikiUrl = `https://www.wikiart.org/en/popular-paintings?json=1&page=${randomNum}`
-  axios.get(wikiUrl).then( function(apiResponse) {
+  axios.get(wikiUrl).then((apiResponse) => {
     res.render('paintings', {paintings: apiResponse.data});
   })
 });
 
+router.get('/favorites/', (req, res) => {
+  db.user.findByPk(req.user.id).then((user) => {
+    user.getArts().then((arts) => {
+        let favorites = arts.map( art => {
+          return axios.get(`https://www.wikiart.org/en/${art.url}/?json=2`)
+            .then(responseData => responseData.data)
+        })
+        Promise.all(favorites).then(apiResponse => {
+          res.render('favorites', {favorites: apiResponse})
+      })
+    })
+  })
+});
+
+router.post('/favorites', (req, res) => {
+  db.user.findByPk(req.user.id)
+    .then((user) => {
+      db.art.findOrCreate({
+        where: {
+          url: req.body.name
+        }
+      }).then(([foundArt, created]) => {
+        user.addArt(foundArt).then((relationInfo) => {
+        res.redirect('favorites');
+        })
+      })
+  })
+});
+
+router.delete('/favorites/:id', (req, res) => {
+db.art.findOne({
+  where: {
+    url: req.params.id
+  }
+  }).then((foundArt) => {
+    foundArt.destroy();
+  })
+res.redirect('favorites')
+})
 
 
 module.exports = router;
