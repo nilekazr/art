@@ -1,75 +1,71 @@
-<div class="grid-container">
-
-  <div class="top-bar">
-    <div class="top-bar-left">
-      <ul class="vertical medium-horizontal menu" style="background-color: mediumturquoise;">
-        <li class="menu-text">art.</li>
-        <li><a href="/">Artists</a></li>
-        <li><a href="/paintings">Paintings</a></li>
-        <% if (currentUser) { %>
-        <li><a href="/favorites">Favourites</a></li>
-        <% } %>
-      </ul>
-    </div>
-    <div class="top-bar-right">
-      <ul class="menu">
-        <% if (!currentUser) { %>
-          <button class="button small" data-open="loginSignupModal">Login / Signup</button>
-          <% } else { %>
-            <li><a class="button warning small" href="/auth/logout">Logout</a></li>
-            <% } %>
-          </ul>
-        </div>
-      </div>
-    </div>
+<div class="grid-container top-bar" style="background-color: mediumturquoise;">
+  <div class="top-bar-left">
+    <ul class="vertical medium-horizontal menu" style="background-color: mediumturquoise;">
+      <li class="menu-text">art.</li>
+      <li><a href="/">Artists</a></li>
+      <li><a href="/paintings">Paintings</a></li>
+      <% if (currentUser) { %>
+      <li><a href="/favorites">Favourites</a></li>
+      <% } %>
+    </ul>
+  </div>
+  <div class="top-bar-right">
+    <ul class="menu" style="background-color: mediumturquoise;">
+      <% if (!currentUser) { %>
+        <button class="button small" data-open="loginSignupModal">Login / Signup</button>
+      <% } else { %>
+        <li><a class="button warning small" href="/auth/logout">Logout</a></li>
+      <% } %>
+    </ul>
+  </div>
       
       <!-- This is the first modal -->
-      <div class="reveal" id="loginSignupModal" data-reveal>
-        <form action="/auth/login" method="POST">
-          <div class="grid-y grid-padding-y">
-            <div class="cell small-6">
-              <label for="auth-email">E-mail</label>
-              <input id="auth-email" type="email" name="email">
-            </div>
-            <div class="cell small-6">
-              <label for="auth-password">Password</label>
-              <input id="auth-password" type="password" name="password">
-            </div>        
-            <div class="cell">
-              <input type="submit" class="button primary" value="Log In">
-            </div>
-          </div>
-        </form>
-        <button class="button secondary" data-open="signupModal">Sign Up!</button>
-        <button class="close-button" data-close aria-label="Close reveal" type="button">
-          <span aria-hidden="true">&times;</span>
-        </button>
+  <div class="reveal" id="loginSignupModal" data-reveal>
+    <form action="/auth/login" method="POST">
+      <div class="grid-y grid-padding-y">
+        <div class="cell small-6">
+          <label for="auth-email">E-mail</label>
+          <input id="auth-email" type="email" name="email">
+        </div>
+        <div class="cell small-6">
+          <label for="auth-password">Password</label>
+          <input id="auth-password" type="password" name="password">
+        </div>        
+        <div class="cell">
+          <input type="submit" class="button primary" value="Log In">
+        </div>
       </div>
-      
-      <!-- This is the nested modal -->
-      <div class="reveal" id="signupModal" data-reveal>
-        <form action="/auth/signup" method="POST">
-          <div class="grid-y grid-padding-y">
-            <div class="cell small-6">
-              <label for="new-name">Name</label>
-              <input id="new-name" type="text" name="name">
-            </div>
-            <div class="cell small-6">
-              <label for="new-email">E-mail</label>
-              <input id="new-email" type="email" name="email">
-            </div>
-            <div class="cell small-6">
-              <label for="new-password">Password</label>
-              <input id="new-password" type="password" aria-describedby="passwordHelpText" name="password">
-              <p class="help-text" id="passwordHelpText">Your password must have at least 8 and up to 99 characters.</p>
-            </div>      
-            <div class="cell">
-              <input type="submit" class="button success" value="Sign up">
-            </div>
-          </div>
-        </form>
-        <button class="close-button" data-close aria-label="Close reveal" type="button">
-          <span aria-hidden="true">&times;</span>
-        </button>
+    </form>
+    <button class="button secondary" data-open="signupModal">Sign Up!</button>
+    <button class="close-button" data-close aria-label="Close reveal" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+    
+    <!-- This is the nested modal -->
+  <div class="reveal" id="signupModal" data-reveal>
+    <form action="/auth/signup" method="POST">
+      <div class="grid-y grid-padding-y">
+        <div class="cell small-6">
+          <label for="new-name">Name</label>
+          <input id="new-name" type="text" name="name">
+        </div>
+        <div class="cell small-6">
+          <label for="new-email">E-mail</label>
+          <input id="new-email" type="email" name="email">
+        </div>
+        <div class="cell small-6">
+          <label for="new-password">Password</label>
+          <input id="new-password" type="password" aria-describedby="passwordHelpText" name="password">
+          <p class="help-text" id="passwordHelpText">Your password must have at least 8 and up to 99 characters.</p>
+        </div>      
+        <div class="cell">
+          <input type="submit" class="button success" value="Sign up">
+        </div>
       </div>
+    </form>
+    <button class="close-button" data-close aria-label="Close reveal" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
 </div>
