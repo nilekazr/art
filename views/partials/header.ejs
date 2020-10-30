@@ -27,11 +27,13 @@
     <form action="/auth/login" method="POST">
       <div class="grid-y grid-padding-y">
         <div class="cell small-6">
-          <label for="auth-email">E-mail</label>
+          <h2 class="text-center">Login</h2>
+          <p>Please enter your email and password to enter.</p>
+          <label for="auth-email">E-mail Address:</label>
           <input id="auth-email" type="email" name="email">
         </div>
         <div class="cell small-6">
-          <label for="auth-password">Password</label>
+          <label for="auth-password">Password:</label>
           <input id="auth-password" type="password" name="password">
         </div>        
         <div class="cell">
@@ -39,8 +41,11 @@
         </div>
       </div>
     </form>
-    <button class="button secondary" data-open="signupModal">Sign Up!</button>
-    <button class="close-button" data-close aria-label="Close reveal" type="button">
+    <p>To create an account, please click the Sign Up button below.</p>
+    <span>
+      <button class="button secondary" data-open="signupModal">Sign Up!</button>
+    </span>
+      <button class="close-button" data-close aria-label="Close reveal" type="button">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
@@ -49,12 +54,14 @@
   <div class="reveal" id="signupModal" data-reveal>
     <form action="/auth/signup" method="POST">
       <div class="grid-y grid-padding-y">
+        <h2 class="text-center">Create Account</h2>
+        <p>Please enter your name, e-mail address, and password in the fields below to create the account.</p>
         <div class="cell small-6">
-          <label for="new-name">Name</label>
+          <label for="new-name">Name:</label>
           <input id="new-name" type="text" name="name">
         </div>
         <div class="cell small-6">
-          <label for="new-email">E-mail</label>
+          <label for="new-email">E-mail Address:</label>
           <input id="new-email" type="email" name="email">
         </div>
         <div class="cell small-6">
@@ -63,7 +70,7 @@
           <p class="help-text" id="passwordHelpText">Your password must have at least 8 and up to 99 characters.</p>
         </div>      
         <div class="cell">
-          <input type="submit" class="button success" value="Sign up">
+          <input type="submit" class="button success" value="Sign Up!">
         </div>
       </div>
     </form>
