@@ -1,23 +1,25 @@
 
 <div class="grid-container">
   <h1 class="text-center"><%= artist.artistName %></h1>
-  
+  <br>
   <div class="media-object">
     <div class="media-object-section align-middle">
       <img src="<%= artist.image %>" alt="">
-    </div>
-    <% if (currentUser) { %>
-      <span>
+      <% if (currentUser) { %>
         <form method="POST" action="/favorites">
-          <input type="hidden" name="name" value="<%= artist.url %>">
-          <button type="submit"><i class="fi-heart"></i></button>
-        </form>
-      </span>
-    <% } else { %>
-      <span data-tooltip tabindex="1" title="Please login to favourite this artist.">
-        <i class="fi-info"></i>
-      </span>
-    <% } %>
+          <p class="text-center">
+            <input type="hidden" name="name" value="<%= artist.url %>">
+            <button type="submit"><i class="fi-heart" style="font-size: 24px;"></i></button>
+          </p>
+          </form>
+        <% } else { %>
+            <p class="text-center">
+              <span data-tooltip class="right" tabindex="1" title="Please login to favourite this artist.">
+                <i class="step fi-info" style="font-size: 24px;"></i>
+              </span>
+            </p>
+            <% } %>
+      </div>
     <div class="media-object-section">
       <% let bio = artist.biography.replace(/\s*\[.*?\]\s*/g, " ") %> 
       <% let bioArr = bio.split(" ").splice(0, 200).join(" ") %> 
