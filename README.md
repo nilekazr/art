@@ -13,10 +13,6 @@ The aim of art. is to bring artists to the forefront, giving users the chance to
 * View gallery of favorited artist
 * Nested forms in nested modals
 
-## Screenshots
-![Screenshot1](screenshot1.png)
-![Screenshot2](screenshot2.png)
-
 ## User Stories
 * User wants to create an account.
 * User wants to view paintings.
@@ -25,9 +21,11 @@ The aim of art. is to bring artists to the forefront, giving users the chance to
 * User wants to view their favorite paintings.
 * User wants to remove painting(s) from favorites.
 
-
 ## Wireframes
-![Wireframes](piano-game-wireframes.png)
+![Wireframes](/public/assets/project/art_wireframe.png)
+
+## ERD
+![Screenshot1](/public/assets/project/art_ERD.png)
 
 ## Technologies
 * Express.js
@@ -41,7 +39,7 @@ The aim of art. is to bring artists to the forefront, giving users the chance to
 * HTML
 
 ## Code Snippets
-[Code Snippets](code-snippet.md)
+[Code Snippets](./code-snippet.md)
 
 ## Planned Features
 * Search function for paintings or artist.
