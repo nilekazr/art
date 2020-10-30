@@ -1,20 +1,34 @@
 body {
-  background-color: lightgrey !important;
+  background-color: cadetblue !important;
 }
 
-h1 {
-  color: cadetblue !important;
+h1, h3 {
+  font-family: cursive !important;
+  color: #A4EBED !important;
 }
 .button {
   border-radius: 5px !important;
   padding: 0.5em 1em !important;
 }
 
+a {
+  color: #416C6E !important;
+}
+
 .artName {
-  font-size: 14px !important;
+  font-size: 18px !important;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif !important;
   color: black !important;
 }
 
 .artName:hover {
-  color: #2199e8 !important;
+  color: #543521 !important;
+}
+
+.calloutStyle {
+  margin-left: 20px !important;
+}
+
+.topbottomBack {
+  background-color: #EDC374 !important;
 }
