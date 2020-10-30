@@ -13,7 +13,7 @@ The aim of art. is to bring artists to the forefront, giving users the chance to
 * View gallery of favorited artist
 * Nested forms in nested modals
 
-## Screenshots
+## ERD
 ![Art_ERD](/public/assets/project/Art_ERD.png)
 
 ## User Stories
@@ -23,7 +23,6 @@ The aim of art. is to bring artists to the forefront, giving users the chance to
 * User wants to save their favorite paintings.
 * User wants to view their favorite paintings.
 * User wants to remove painting(s) from favorites.
-
 
 ## Wireframes
 ![Art_Wireframe](/public/assets/project/Art_Wireframe.png)
@@ -40,7 +39,7 @@ The aim of art. is to bring artists to the forefront, giving users the chance to
 * HTML
 
 ## Code Snippets
-[Code Snippets](code-snippet.md)
+[Code Snippets](./code-snippet.md)
 
 ## Planned Features
 * Search function for paintings or artist.
