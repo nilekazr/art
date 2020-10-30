@@ -2,19 +2,21 @@
 
   <div class="top-bar">
     <div class="top-bar-left">
-      <ul class="vertical medium-horizontal menu">
+      <ul class="vertical medium-horizontal menu" style="background-color: mediumturquoise;">
         <li class="menu-text">art.</li>
         <li><a href="/">Artists</a></li>
         <li><a href="/paintings">Paintings</a></li>
+        <% if (currentUser) { %>
         <li><a href="/favorites">Favourites</a></li>
+        <% } %>
       </ul>
     </div>
     <div class="top-bar-right">
       <ul class="menu">
         <% if (!currentUser) { %>
-          <button class="button" data-open="loginSignupModal">Login / Signup</button>
+          <button class="button small" data-open="loginSignupModal">Login / Signup</button>
           <% } else { %>
-            <li><a class="button warning" href="/auth/logout">Logout</a></li>
+            <li><a class="button warning small" href="/auth/logout">Logout</a></li>
             <% } %>
           </ul>
         </div>
