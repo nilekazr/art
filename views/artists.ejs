@@ -1,7 +1,6 @@
-
 <div class="grid-container">
   <h1 class="text-center"><%= artist.artistName %></h1>
-  
+    <br>
   <div class="media-object">
     <div class="media-object-section align-middle">
       <img src="<%= artist.image %>" alt="">
@@ -9,13 +8,15 @@
     <% if (currentUser) { %>
       <span>
         <form method="POST" action="/favorites">
-          <input type="hidden" name="name" value="<%= artist.url %>">
-          <button type="submit"><i class="fi-heart"></i></button>
+          <span data-tooltip class="right" tabindex="0" title="Add to favourites.">
+            <input type="hidden" name="name" value="<%= artist.url %>">
+            <button type="submit"><i class="fi-heart" style="font-size: 24px;"></i></button>
+          </span>
         </form>
       </span>
     <% } else { %>
       <span data-tooltip tabindex="1" title="Please login to favorite this artist.">
-        <i class="fi-info"></i>
+        <i class="fi-info" style="font-size: 24px;"></i>
       </span>
     <% } %>
     <div class="media-object-section">
@@ -24,10 +25,7 @@
       <%= `${bioArr}... ` %> <a href="<%= artist.story %>" target="_blank">Read More</a>
     </div>
   </div>
-  
-  
-  
-  <h4 class="text-center"> Works by <%= artist.artistName %></h4>
+  <h3 class="text-center"> Works by <%= artist.artistName %></h3>
     <div class="grid-x grid-padding-x align-middle">
       <% for (let i = 0; i < 7; i ++) { %>
         <div class="cell large-3 medium-2 align-justify">
@@ -36,4 +34,3 @@
       <% } %> 
     </div>
 </div>
-

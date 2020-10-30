@@ -22,10 +22,10 @@ router.post('/signup', (req, res) => {
     if (created) {
       passport.authenticate('local', {
         successRedirect: '/',
-        successFlash: 'Account created and user logged in!'
+        successFlash: 'Account created. Welcome to art.!'
       })(req, res)
     } else {
-      req.flash('error', 'Email already exists!')
+      req.flash('error', 'E-mail address already exists!')
       res.redirect('/auth/login')
     }
   }).catch(error => {
@@ -42,12 +42,12 @@ router.post('/login', passport.authenticate('local', {
   successRedirect: '/',
   failureRedirect: '/auth/login',
   failureFlash: 'Invalid username or password',
-  successFlash: 'Login successful!',
+  successFlash: 'Welcome back to art.!',
 }))
 
 router.get('/logout', (req, res) => {
   req.logout()
-  req.flash('success', 'You have logged out.')
+  req.flash('goodbye', 'SEE YOU SPACE COWBOY')
   res.redirect('/')
 })
 

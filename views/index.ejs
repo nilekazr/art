@@ -7,12 +7,9 @@
             <form method="GET" action="/artists">
               <input type="hidden" name="name" value="<%= artist[i].url %>">
               <div class="button-group align-center">
-                <button class="button clear secondary align-center" type="submit"><%= artist[i].artistName %></button>
+                <button class="button clear secondary align-center artName" type="submit"><%= artist[i].artistName %></button>
               </div>
-              
             </form>
         </div>
       <% } %>
 </div>
-
-

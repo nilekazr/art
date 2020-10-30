@@ -1,7 +1,38 @@
-h1 {
-  color: cadetblue !important;
+body {
+  background-color: cadetblue !important;
 }
 
-.body {
-  background-color: gray;
+h1, h3 {
+  font-family: cursive !important;
+  color: #A4EBED !important;
+}
+.button {
+  border-radius: 5px !important;
+  padding: 0.5em 1em !important;
+}
+
+a {
+  color: #416C6E !important;
+}
+
+.reveal {
+  border-radius: 5px !important;
+}
+
+.artName {
+  font-size: 18px !important;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif !important;
+  color: black !important;
+}
+
+.artName:hover {
+  color: #8CEAED !important;
+}
+
+.calloutStyle {
+  margin-left: 20px !important;
+}
+
+.topbottomBack {
+  background-color: #EDC374 !important;
 }
