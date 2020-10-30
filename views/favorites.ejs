@@ -8,12 +8,14 @@
         <form method="GET" action="/artists">
           <input type="hidden" name="name" value="<%= favorites[i].url %>">
           <div class="button-group align-center">
-            <button class="button clear secondary align-center" type="submit"><%= favorites[i].artistName %></button>
+            <button class="button clear secondary align-center artName" type="submit"><%= favorites[i].artistName %></button>
           </form>
           <span>
             <form method="POST" action="/favorites/<%= favorites[i].url %>/?_method=DELETE">
               <input type="hidden" value="Delete">
-              <button type="submit"><i class="fi-dislike"></i></button>
+              <span data-tooltip class="right" tabindex="1" title="Remove from favourites.">
+                <button type="submit"><i class="fi-dislike" style="font-size: 24px;"></i></button>
+              </span>
             </form>
           </span>
           </div>            
