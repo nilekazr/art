@@ -1,0 +1,33 @@
+version: "3.9"
+services:
+  node:
+    image: "node" #grabbing node for my front end
+    build:
+      context: .
+    networks: 
+      - frontend
+    ports:
+      - "3000:3000" # local ports\container ports
+    depends_on:
+      - db
+
+  db:
+    image: "postgres"  #grab the latest official version
+    restart: always
+    env_file: db.env
+    volumes:
+      - db-data:/var/lib/postgresql/data #persists the data in the database
+    networks:
+      - backend
+    ports:
+      - "5432:5432"
+    deploy:
+      placement:
+        max_replicas_per_node: 1
+        constraints:
+          - "node.role==manager"
+               
+networks:
+  backend:
+  frontend:
+volumes:
