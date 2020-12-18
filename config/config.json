@@ -1,17 +1,17 @@
 {
   "development": {
     "database": "app_art",
-    "host": "127.0.0.1",
+    "host": "127.0.0.1.5423",
     "dialect": "postgres"
   },
   "test": {
     "database": "app_art_test",
-    "host": "127.0.0.1",
+    "host": "127.0.0.1.5423",
     "dialect": "postgres"
   },
   "production": {
     "database": "app_art_production",
-    "host": "127.0.0.1",
+    "host": "127.0.0.1.5423",
     "dialect": "postgres"
   }
 }

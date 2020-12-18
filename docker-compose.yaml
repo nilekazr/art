@@ -16,18 +16,19 @@ services:
     restart: always
     env_file: db.env
     volumes:
-      - db-data:/var/lib/postgresql/data #persists the data in the database
+    - db-data:/var/lib/postgresql/data #persists the data in the database
     networks:
       - backend
     ports:
-      - "5432:5432"
+      - "5432:5432" #postgres port
     deploy:
       placement:
         max_replicas_per_node: 1
         constraints:
           - "node.role==manager"
                
-networks:
+networks: 
   backend:
   frontend:
 volumes:
+  db-data:
